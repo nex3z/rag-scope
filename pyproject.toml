@@ -1,0 +1,23 @@
+[project]
+name = "rag_scope"
+requires-python = ">=3.11.9"
+dynamic = ["version", "dependencies"]
+
+[build-system]
+requires = ["setuptools", "setuptools_scm[toml]"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools_scm]
+write_to = "rag_scope/_version.py"
+
+[tool.setuptools.packages.find]
+include = ["rag_scope"]
+
+[project.scripts]
+rscope = "rag_scope.cli.rscope:app"
+
+[tool.setuptools.dynamic]
+dependencies = {file = ["requirements.txt"]}
+
+[project.optional-dependencies]
+all = []
